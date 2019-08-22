@@ -23,8 +23,7 @@ public class DataSourceDemo {
     private DataSource dataSource;
 
     public static void main(String[] args) throws SQLException {
-        ApplicationContext applicationContext =
-                new ClassPathXmlApplicationContext("applicationContext*.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext*.xml");
         showBeans(applicationContext);
         dataSourceDemo(applicationContext);
     }
@@ -44,7 +43,7 @@ public class DataSourceDemo {
     }
 
     private static void showBeans(ApplicationContext applicationContext) {
-        System.out.println(Arrays.toString(applicationContext.getBeanDefinitionNames()));
+        System.out.println("*** " + Arrays.toString(applicationContext.getBeanDefinitionNames()));
     }
 
     private static void dataSourceDemo(ApplicationContext applicationContext) throws SQLException {
@@ -53,9 +52,9 @@ public class DataSourceDemo {
     }
 
     public void showDataSource() throws SQLException {
-        System.out.println(dataSource.toString());
+        System.out.println("*** " + dataSource.toString());
         Connection conn = dataSource.getConnection();
-        System.out.println(conn.toString());
+        System.out.println("*** " + conn.toString());
         conn.close();
     }
 }
