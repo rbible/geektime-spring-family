@@ -25,24 +25,16 @@ public class DeclarativeTransactionDemoApplication implements CommandLineRunner 
 	@Override
 	public void run(String... args) throws Exception {
 		fooService.insertRecord();
-		log.info("AAA {}",
-				jdbcTemplate
-						.queryForObject("SELECT COUNT(*) FROM FOO WHERE BAR='AAA'", Long.class));
+		log.info("AAA {}", jdbcTemplate.queryForObject("SELECT COUNT(*) FROM FOO WHERE BAR='AAA'", Long.class));
 		try {
 			fooService.insertThenRollback();
 		} catch (Exception e) {
-			log.info("BBB {}",
-					jdbcTemplate
-							.queryForObject("SELECT COUNT(*) FROM FOO WHERE BAR='BBB'", Long.class));
+			log.info("BBB {}", jdbcTemplate.queryForObject("SELECT COUNT(*) FROM FOO WHERE BAR='BBB'", Long.class));
 		}
-
 		try {
 			fooService.invokeInsertThenRollback();
 		} catch (Exception e) {
-			log.info("BBB {}",
-					jdbcTemplate
-							.queryForObject("SELECT COUNT(*) FROM FOO WHERE BAR='BBB'", Long.class));
+			log.info("BBB {}", jdbcTemplate.queryForObject("SELECT COUNT(*) FROM FOO WHERE BAR='BBB'", Long.class));
 		}
 	}
 }
-
