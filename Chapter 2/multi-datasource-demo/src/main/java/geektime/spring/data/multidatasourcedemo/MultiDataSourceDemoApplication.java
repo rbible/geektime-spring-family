@@ -34,7 +34,7 @@ public class MultiDataSourceDemoApplication {
     @Bean
     public DataSource fooDataSource() {
         DataSourceProperties dataSourceProperties = fooDataSourceProperties();
-        log.info("foo datasource: {}", dataSourceProperties.getUrl());
+        log.info("*** foo datasource: {}", dataSourceProperties.getUrl());
         return dataSourceProperties.initializeDataSourceBuilder().build();
     }
 
@@ -53,7 +53,7 @@ public class MultiDataSourceDemoApplication {
     @Bean
     public DataSource barDataSource() {
         DataSourceProperties dataSourceProperties = barDataSourceProperties();
-        log.info("bar datasource: {}", dataSourceProperties.getUrl());
+        log.info("*** bar datasource: {}", dataSourceProperties.getUrl());
         return dataSourceProperties.initializeDataSourceBuilder().build();
     }
 
