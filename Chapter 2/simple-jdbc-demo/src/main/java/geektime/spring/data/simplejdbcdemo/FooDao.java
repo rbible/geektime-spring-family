@@ -29,15 +29,14 @@ public class FooDao {
         HashMap<String, String> row = new HashMap<>();
         row.put("BAR", "d");
         Number id = simpleJdbcInsert.executeAndReturnKey(row);
-        log.info("ID of d: {}", id.longValue());
+        log.info("*** ID of d: {}", id.longValue());
     }
 
     public void listData() {
-        log.info("Count: {}",
-                jdbcTemplate.queryForObject("SELECT COUNT(*) FROM FOO", Long.class));
+        log.info("*** Count: {}", jdbcTemplate.queryForObject("SELECT COUNT(*) FROM FOO", Long.class));
 
         List<String> list = jdbcTemplate.queryForList("SELECT BAR FROM FOO", String.class);
-        list.forEach(s -> log.info("Bar: {}", s));
+        list.forEach(s -> log.info("*** Bar: {}", s));
 
         List<Foo> fooList = jdbcTemplate.query("SELECT * FROM FOO", new RowMapper<Foo>() {
             @Override
@@ -48,6 +47,6 @@ public class FooDao {
                         .build();
             }
         });
-        fooList.forEach(f -> log.info("Foo: {}", f));
+        fooList.forEach(f -> log.info("*** Foo: {}", f));
     }
 }

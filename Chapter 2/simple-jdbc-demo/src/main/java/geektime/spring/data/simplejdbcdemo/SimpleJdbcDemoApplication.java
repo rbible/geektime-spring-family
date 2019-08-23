@@ -27,8 +27,7 @@ public class SimpleJdbcDemoApplication implements CommandLineRunner {
     @Bean
     @Autowired
     public SimpleJdbcInsert simpleJdbcInsert(JdbcTemplate jdbcTemplate) {
-        return new SimpleJdbcInsert(jdbcTemplate)
-                .withTableName("FOO").usingGeneratedKeyColumns("ID");
+        return new SimpleJdbcInsert(jdbcTemplate).withTableName("FOO").usingGeneratedKeyColumns("ID");
     }
 
     @Bean
