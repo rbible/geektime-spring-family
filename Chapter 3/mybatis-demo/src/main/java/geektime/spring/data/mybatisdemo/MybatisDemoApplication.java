@@ -28,15 +28,15 @@ public class MybatisDemoApplication implements ApplicationRunner {
 		Coffee c = Coffee.builder().name("espresso")
 				.price(Money.of(CurrencyUnit.of("CNY"), 20.0)).build();
 		int count = coffeeMapper.save(c);
-		log.info("Save {} Coffee: {}", count, c);
+		log.info("*** Save {} Coffee: {}", count, c);
 
 		c = Coffee.builder().name("latte")
 				.price(Money.of(CurrencyUnit.of("CNY"), 25.0)).build();
 		count = coffeeMapper.save(c);
-		log.info("Save {} Coffee: {}", count, c);
+		log.info("*** Save {} Coffee: {}", count, c);
 
 		c = coffeeMapper.findById(c.getId());
-		log.info("Find Coffee: {}", c);
+		log.info("*** Find Coffee: {}", c);
 	}
 }
 
