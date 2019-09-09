@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories
 @EnableCaching(proxyTargetClass = true)
 public class SpringBucksApplication implements ApplicationRunner {
+
 	@Autowired
 	private CoffeeService coffeeService;
 

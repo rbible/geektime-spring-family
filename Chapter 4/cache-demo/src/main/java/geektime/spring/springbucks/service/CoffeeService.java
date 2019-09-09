@@ -25,6 +25,7 @@ public class CoffeeService {
 
     @Cacheable
     public List<Coffee> findAllCoffee() {
+        log.info("Cacheable findAllCoffee");
         return coffeeRepository.findAll();
     }
 
